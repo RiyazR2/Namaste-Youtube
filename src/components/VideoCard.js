@@ -1,9 +1,9 @@
 const VideoCard = ({ info }) => {
-  console.log("info ", info);
+  // console.log("info ", info);
 
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
-  console.log("CT", channelTitle);
+
   return (
     <div className=" p-2 m-2 w-80  cursor-pointer">
       <img className="rounded-lg" src={thumbnails.medium.url} alt="video" />
