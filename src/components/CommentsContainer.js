@@ -1,5 +1,6 @@
 import React from "react";
 
+// Youtube Comments
 const commentsData = [
   {
     name: "Akshay Saini",
@@ -73,6 +74,7 @@ const commentsData = [
   },
 ];
 
+// Comment Structure
 const Comment = ({ data }) => {
   const { name, text, replies } = data;
   return (
