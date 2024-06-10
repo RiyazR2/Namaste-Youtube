@@ -37,7 +37,7 @@ const LiveChat = () => {
           }
         </div>
       </div>
-      {/* 
+
       <form
         className="w-full p-2 ml-2 border border-black"
         onSubmit={(e) => {
@@ -51,8 +51,7 @@ const LiveChat = () => {
           );
           setLiveMessage("");
         }}
-      > */}
-      <form>
+      >
         <input
           className="px-2 w-96"
           type="text"
