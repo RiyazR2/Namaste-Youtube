@@ -1,6 +1,6 @@
-const GOOGLE_API_KEY = "AIzaSyC4K2K2vJF_rz7IgmeKkeZ4VYOwCy3irA4";
-// 2nd key = "AIzaSyB-v1j1S61-kah-edlFSSvYA6sQEaL0IHU"
-
+const GOOGLE_API_KEY = "#";
+// 2nd key = ""
+//https://console.cloud.google.com/apis/credentials?project=ace-fiber-309604 ==> go and update key from this
 export const LIVE_CHAT_COUNT = 25;
 
 export const YOUTUBE_VIDEO_API =
