@@ -3,6 +3,11 @@ import Button from "./Button";
 
 const list = [
   "All",
+  "Trailer",
+  "Politics",
+  "Bollywood",
+  "News",
+  "Music",
   "Gaming",
   "Songs",
   "Live",
@@ -10,11 +15,6 @@ const list = [
   "Cooking",
   "Cricket",
   "Valentines",
-  "News",
-  "Music",
-  "Trailer",
-  "Politics",
-  "Bollywood",
 ];
 const ButtonList = () => {
   return (
