@@ -1,113 +1,46 @@
+/* ****************************************************************************************** */
+
 import React from "react";
+import { commentsData } from "../utils/commentsData";
 
 // Youtube Comments
-const commentsData = [
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [
-      {
-        name: "Akshay Saini",
-        text: "Lorem ipsum dolor sit amet, consectetur adip",
-        replies: [],
-      },
-      {
-        name: "Akshay Saini",
-        text: "Lorem ipsum dolor sit amet, consectetur adip",
-        replies: [
-          {
-            name: "Akshay Saini",
-            text: "Lorem ipsum dolor sit amet, consectetur adip",
-            replies: [
-              {
-                name: "Akshay Saini",
-                text: "Lorem ipsum dolor sit amet, consectetur adip",
-                replies: [
-                  {
-                    name: "Akshay Saini",
-                    text: "Lorem ipsum dolor sit amet, consectetur adip",
-                    replies: [
-                      {
-                        name: "Akshay Saini",
-                        text: "Lorem ipsum dolor sit amet, consectetur adip",
-                        replies: [],
-                      },
-                    ],
-                  },
-                  {
-                    name: "Akshay Saini",
-                    text: "Lorem ipsum dolor sit amet, consectetur adip",
-                    replies: [],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-  {
-    name: "Akshay Saini",
-    text: "Lorem ipsum dolor sit amet, consectetur adip",
-    replies: [],
-  },
-];
+// Youtube Comments
 
 // Comment Structure
 const Comment = ({ data }) => {
   const { name, text, replies } = data;
   return (
-    <div className="flex shadow-sm bg-gray-100 p-2 rounded-lg my-2">
+    <div className="flex shadow-lg bg-white p-4 rounded-lg my-4">
       <img
-        className="w-12 h-12"
+        className="w-12 h-12 rounded-full"
         alt="user"
         src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
       />
-      <div className="px-3">
-        <p className="font-bold">{name}</p>
-        <p>{text}</p>
+      <div className="px-4">
+        <p className="font-bold text-gray-800">{name}</p>
+        <p className="text-gray-600">{text}</p>
       </div>
     </div>
   );
 };
 
 const CommentsList = ({ comments }) => {
-  // Disclaimer: Don't use indexes as keys
   return comments.map((comment, index) => (
-    <div key={index}>
+    <div key={index} className="ml-4">
       <Comment data={comment} />
-      <div className="pl-5 border border-l-black ml-5">
-        <CommentsList comments={comment.replies} />
-      </div>
+      {comment.replies.length > 0 && (
+        <div className="pl-6 border-l-2 border-gray-300">
+          <CommentsList comments={comment.replies} />
+        </div>
+      )}
     </div>
   ));
 };
 
 const CommentsContainer = () => {
   return (
-    <div className="m-5 p-2">
-      <h1 className="text-2xl font-bold">Comments: </h1>
+    <div className=" max-w-4xl  my-10 p-5 bg-gray-50 rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Comments</h1>
       <CommentsList comments={commentsData} />
     </div>
   );
