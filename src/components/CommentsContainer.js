@@ -1,5 +1,3 @@
-/* ****************************************************************************************** */
-
 import React from "react";
 import { commentsData } from "../utils/commentsData";
 
@@ -8,7 +6,7 @@ import { commentsData } from "../utils/commentsData";
 
 // Comment Structure
 const Comment = ({ data }) => {
-  const { name, text, replies } = data;
+  const { name, text } = data;
   return (
     <div className="flex shadow-lg bg-white p-4 rounded-lg my-4">
       <img
