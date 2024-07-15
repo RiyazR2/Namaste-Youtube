@@ -110,14 +110,3 @@ const Header = () => {
 };
 
 export default Header;
-
-/*
-
-To make the suggestions clickable and update the input field with the selected suggestion, you can add an onClick handler to each suggestion item. Here is the updated Header component with this functionality:
-
-In this updated code:
-
-The handleSuggestionClick function sets the clicked suggestion as the value of searchQuery and hides the suggestions list.
-The onMouseDown event is used instead of onClick to ensure that the input field is updated before it loses focus. This prevents the onBlur event from hiding the suggestions before the click event is processed.
-
-*/
