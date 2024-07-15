@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import Menu_Logo from "../utils/Images/Menu_Logo.png";
 import Youtube_Logo from "../utils/Images/Youtube_Logo.png";
-import { YOUTUBE_SEARCH_API1 } from "../utils/constants";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
@@ -28,13 +28,10 @@ const Header = () => {
   }, [searchQuery]);
 
   const getSearchSuggestion = async () => {
-    console.log("API Calls -", searchQuery);
-    const data = await fetch(YOUTUBE_SEARCH_API1 + searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
-    // console.log(json[1]);
     setSuggestions(json[1]);
 
-    //Update Cache
     dispatch(
       cacheResults({
         [searchQuery]: json[1],
@@ -44,6 +41,15 @@ const Header = () => {
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setSearchQuery(suggestion);
+    setShowSuggestions(false);
+  };
+
+  const handleSearchClick = () => {
+    // alert("Will Work on it");
   };
 
   return (
@@ -62,22 +68,29 @@ const Header = () => {
       <div className="col-span-10 px-10">
         <div>
           <input
-            className="px-5 w-1/2 border border-gray-400 p-2  rounded-l-full"
+            className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            onFocus={() => setShowSuggestions(true)} // Focus in
-            onBlur={() => setShowSuggestions(false)} // Focus out
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
           />
-          <button className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100">
+          <button
+            className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100"
+            onClick={handleSearchClick}
+          >
             🔍
           </button>
         </div>
         {showSuggestions && (
-          <div className="  sticky bg-white py-2 px-2 w-[37rem] shadow-lg rounded-lg border border-gray-100">
+          <div className="absolute bg-white py-2 px-2 w-[32rem] shadow-lg rounded-lg border border-gray-100 cursor-pointer z-50">
             <ul>
               {suggestions.map((s) => (
-                <li key={s} className="py-2 px-3 shadow-sm hover:bg-gray-100">
+                <li
+                  key={s}
+                  className="py-2 px-3 shadow-sm hover:bg-gray-100"
+                  onMouseDown={() => handleSuggestionClick(s)}
+                >
                   🔍 {s}
                 </li>
               ))}
@@ -97,3 +110,14 @@ const Header = () => {
 };
 
 export default Header;
+
+/*
+
+To make the suggestions clickable and update the input field with the selected suggestion, you can add an onClick handler to each suggestion item. Here is the updated Header component with this functionality:
+
+In this updated code:
+
+The handleSuggestionClick function sets the clicked suggestion as the value of searchQuery and hides the suggestions list.
+The onMouseDown event is used instead of onClick to ensure that the input field is updated before it loses focus. This prevents the onBlur event from hiding the suggestions before the click event is processed.
+
+*/
