@@ -91,7 +91,7 @@ const LiveChat = () => {
           message: makeRandomMessage() + "🚀",
         })
       );
-    }, 1000);
+    }, 1500);
 
     return () => clearInterval(i);
   }, [dispatch]);
