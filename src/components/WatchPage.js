@@ -7,17 +7,19 @@ import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
+  console.log("searchParams", searchParams);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
+
   return (
     <div className="flex flex-col w-full">
       <div className="px-5 flex w-full">
         <div className="">
           <iframe
-            width="1200"
+            width="1080"
             height="600"
             src={"https://www.youtube.com/embed/" + searchParams.get("v")}
             title="YouTube video player"
