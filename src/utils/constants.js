@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyB-v1j1S61-kah-edlFSSvYA6sQEaL0IHU";
+const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 // 2nd key = ""
 //https://console.cloud.google.com/apis/credentials?project=ace-fiber-309604 ==> go and update key from this
 export const LIVE_CHAT_COUNT = 20;
