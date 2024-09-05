@@ -40,7 +40,7 @@ const Sidebar = () => {
         <li className="mb-3">🚀 Akshay Saini</li>
         <li className="mb-3">🏏 Cricket</li>
         <li className="mb-3">🧑🏻‍💻Tech</li>
-        <li className="flex gap-2 mb-3">🌐 ReactJs</li>
+        <li className="flex gap-2 mb-3">🌐 ReactJs </li>
       </ul>
       <h1 className=" font-bold pt-5">Explore</h1>
       <ul>
