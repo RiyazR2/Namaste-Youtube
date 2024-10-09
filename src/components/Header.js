@@ -116,7 +116,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import Menu_Logo from "../utils/Images/Menu_Logo.png";
 import Youtube_Logo from "../utils/Images/Youtube_Logo.png";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import {
+  GOOGLE_API_KEY,
+  SEARCH_KEYWORD_API,
+  YOUTUBE_SEARCH_API,
+} from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
@@ -161,8 +165,16 @@ const Header = () => {
     setShowSuggestions(false);
   };
 
-  const handleSearchClick = () => {
+  const handleSearchClick = async () => {
     // alert("Will Work on it");
+    const data2 = await fetch(
+      "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" +
+        searchQuery +
+        "&key=" +
+        GOOGLE_API_KEY
+    );
+    const json = await data2.json();
+    console.log(json);
   };
 
   return (
