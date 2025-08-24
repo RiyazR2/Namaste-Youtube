@@ -116,11 +116,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import Menu_Logo from "../utils/Images/Menu_Logo.png";
 import Youtube_Logo from "../utils/Images/Youtube_Logo.png";
-import {
-  GOOGLE_API_KEY,
-  SEARCH_KEYWORD_API,
-  YOUTUBE_SEARCH_API,
-} from "../utils/constants";
+import { GOOGLE_API_KEY, YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
